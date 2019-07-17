@@ -15,7 +15,7 @@ def crawl_script(episode_link, csv_file):
     dialog_list = soup.find_all('p')
     with open(csv_file, 'w') as f:
         for dialog in dialog_list:
-            if dialog.b:             
+            if dialog.b or dialog.strong:             
                 try:
                     _str = str(dialog.text.encode('utf-8'))
                     role = _str.split(':')[0]
